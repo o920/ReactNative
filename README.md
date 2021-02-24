@@ -1,6 +1,7 @@
 # ReactNative 독학
  <hr>
- #### 실습 코드 내 공부한 내용 
+ 
+ #### 실습 코드 내 공부한 내용 정리 
  
  ## Thanos
  * import/export
