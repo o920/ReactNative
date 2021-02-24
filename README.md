@@ -10,3 +10,8 @@
 
  ## [Lotto](https://github.com/o920/ReactNative/blob/main/Lotto/App.js)
  * useState
+
+ ## To do List
+ * TextInput
+ * Immutable 불변성
+ * 전개 연산자
