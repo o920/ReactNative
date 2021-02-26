@@ -3,6 +3,41 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { Button, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import _ from 'underscore';
+import styled from 'styled-components';
+
+const Row = styled.View`
+  flex-direction : row;
+`
+const Input = styled.TextInput`
+  width : 300;
+  border-color : #000;
+  border-bottom-width : 1;
+`
+
+const TodoItem = styled.View`
+  flex-direction : row;
+  width : 350;
+  justify-content : space-between;
+  alignItems : center;
+`
+
+// 구조 분해 할당, Destructure Assignment : 이미 item이라고 되어 있는 것들을 props.item이라고 수정하지 않아도 됨
+// const Item = (props) => { console.log(props.item.id) } 
+// props로 받은 것 중 그 안의 item 값만 가져오는 것
+const Item = ( {item, remove} ) => {
+  console.log(item.id); // 생성 시 보낸 id가 찍힘
+  console.log(item.content);
+
+  return (
+    <TodoItem key={ item.id }>
+      <Text>{ item.content }</Text>
+      <Button color={'#f00'} title="delete" onPress={ () => remove( item.id ) }/>
+    </TodoItem>
+  );
+}
+/*
+<View style = {{flexDirection : 'row', width : 350 ...}}>
+*/
 
 //string은 replace 할 때 원래 값을 변경하지 않음
 //  const str = "string here" ;
@@ -42,19 +77,15 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       
       <View style = {[styles.row, {marginBottom : 12}]}>                
-        <TextInput value = {content} 
-                  onChangeText = {text => setContent(text)}
-                  style = {styles.inputStyle}/>
+        <Input value = {content} 
+                  onChangeText = {text => setContent(text)}/>
         <Button title="add" onPress={ () => addItem() }/>
       </View>
-      
+
       <ScrollView>
       {list.map(item =>(                                      // 배열에는 map을 많이 사용, array의 method 중 하나 
         //<Text key = {item.id}>{item.content}</Text>         // 배열 안의 갯수만큼 text node를 생성하는 것, key는 목록 설정 시 강제사항
-        <View key={ item.id } style={[styles.row, styles.todoItem]}>
-          <Text>{ item.content }</Text>
-          <Button color={'#f00'} title="delete" onPress={ () => remove( item.id ) }/>
-        </View>
+        <Item key = {item.id} item = {item} remove = {remove} />
       ))}
       </ScrollView>
 
