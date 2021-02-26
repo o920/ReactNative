@@ -1,5 +1,5 @@
 # ReactNative 독학
- <hr>
+
  
  #### 실습 코드 내 공부한 내용 정리 
  
@@ -11,7 +11,7 @@
  ## [Lotto](https://github.com/o920/ReactNative/blob/main/Lotto/App.js)
  * useState
 
- ## To do List
+ ## [To do List](https://github.com/o920/ReactNative/blob/main/TodoList/App.js)
  * TextInput
  * Immutable 불변성
  * 전개 연산자
