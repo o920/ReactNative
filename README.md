@@ -17,3 +17,12 @@
  * 전개 연산자
  * Style
  * Styled-Component
+
+## [the Weather Clone](https://github.com/o920/theWeatherClone)
+ * expo-location
+ * request Permission
+ * weather API
+ * @expo/vector-icons
+
+## [Airbnb Clone](https://github.com/o920/AirbnbClone)
+ * 하는 중
